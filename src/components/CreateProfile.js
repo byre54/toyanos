@@ -9,7 +9,57 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
-import MainC from './web3/Main';
+import MainC from './web3/Main'
+import web3 from './web3/web3'
+
+
+
+class MainBody extends Component {
+
+  state = {
+    ipfsHash:null,
+    buffer:'',
+    ethAddress:'',
+    fee: '',
+    blockNumber:'',
+    transactionHash:'',
+    gasUsed:'',
+    txReceipt:'',
+    sendingAccount:'',
+    name: '',
+    key: '',
+    email: '',
+    phone: '',
+    address: '',
+    isLoggedIn:false
+  };
+//captured from frontend
+  captureName =(event) => {
+event.stopPropagation()
+event.preventDefault()
+this.state.name = event.target.value;
+  };
+//captured from frontend
+  captureEmail=(event) => {
+    event.stopPropagation()
+    event.preventDefault()
+    this.state.email= event.target.value;
+  };
+    //captured from web3
+  captureAddress= (event) => {
+    event.stopPropagation()
+    event.preventDefault()
+    this.state.ethAddress= event.target.value;
+  };
+  //set User Contract details i.e Address,fee and ipfs Hash
+setUserContractDetails = async() => {
+  const ethAddress = web3.eth.accounts[0]; //current user address
+  MainC.methods.becomeADataLord("${this.state.address}","${this.state.fee}","${this.state.ipfsHash}").send().then(function(res){
+    console.log(res)//this should print out the current fee of the new dataLord 
+  })
+  this.setState({ethAddress});
+}
+}
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -30,8 +80,15 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2)
   }
 }))
-var currentNo= MainC.methods.getNoOfDatalords.call()
-console.log(currentNo);
+
+//this gets the current no of DataLords
+//i am using console.log to print the results here because i do not know how to display these in the webpage
+var currentNo= MainC.methods.getNoOfDatalords().call().then(function(res){
+  console.log(res);
+})
+
+//var currentNetwork= web3.currentProvider;
+//console.log(currentNetwork);  
 
 export default function Create () {
   const classes = useStyles()

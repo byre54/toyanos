@@ -6,11 +6,13 @@ contract Main{
 uint BaseFee=1 ether;
  struct User{
 uint256 fee;
-string nickname;
-bytes32[] userHash;
+bytes32 userHash;
 address payable wallet;
  }
  
+ event feeChanged(uint _newFee, address indexed _target);
+ event newDataLord(address indexed wallet);
+ event dataBought(address indexed _buyer,address indexed _target, uint _fee );
  
 
 mapping(address=>User) dataLords;
@@ -59,21 +61,23 @@ modifier theOwner(address _sender){
        _;
  }
  
- function becomeADataLord(address _target,uint256 _fee,string memory nick,bytes32 hash) public isNotDataLord(_target) theOwner(_target) returns(uint,string memory){
-dataLords[_target].nickname=nick;
+ function becomeADataLord(address _target,uint256 _fee,bytes32 hash) public isNotDataLord(_target) theOwner(_target) returns(uint){
 dataLords[_target].fee = _fee *BaseFee;
 dataLords[_target].userHash=hash;
 dataLords[_target].wallet=msg.sender;
 dataLordAddress[_target]=true;
 allDataLords.push(_target);
  Accessible[msg.sender][_target]=true; //you have access to your own data
-return (_fee,nick);
+ emit newDataLord(_target);
+return (_fee);
  }
 
 function setFee(uint _fee,address _toSet) public theOwner(_toSet) returns(uint256){
     User memory userBase  = dataLords[_toSet];
     dataLords[_toSet].fee = _fee*BaseFee;
-    return userBabytes32[] userHash;se.fee;
+    emit feeChanged(_fee,_toSet);
+    return userBase.fee;
+    
     
 } 
 
@@ -95,6 +99,7 @@ function buyAccess(address _target) public payable noAccessYet(_target) returns(
   }
   //gives you access
     Accessible[msg.sender][_target]  = true;
+    emit dataBought(msg.sender,_target,userFee);
     return Accessible[msg.sender][_target];
   
     
@@ -117,7 +122,7 @@ function viewData(address _target) public view isDataLord(_target) hasAccess(_ta
 //this updates the ipfs hash of the target in case of data change
 function updateHash(address _target,bytes32 newhash) public theOwner(_target){
     require(dataLordAddress[_target]==true,"you are not a data Lord yet,register first");
-    dataLords[_target].userHash = newhash;
+    dataLords[_target].userHash=newhash;
     
 }
 

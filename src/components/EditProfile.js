@@ -10,6 +10,44 @@ import AddIcon from '@material-ui/icons/Add'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
+import MainC from './web3/Main'
+import web3 from './web3/web3'
+import Mainbody from './CreateProfile'
+
+class Mianbody extends Component{
+  //should get the new Fee
+captureNewFee=(event)=> {
+  event.stopPropagation()
+event.preventDefault()
+this.state.fee = event.target.value
+}
+captureNewHash=(event=>{
+  event.stopPropagation()
+  event.preventDefault()
+  this.state.ipfsHash = event.target.value
+})
+setNewFee=async()=>{
+//const NewFee= //input from the frontend
+
+//this will call the contract to set a new fee
+MainC.methods.setFee(NewFee,"${this.state.address}").send().then(function(res){
+  console.log(fee);
+})
+this.setState({fee});
+}
+
+setNewHash=async()=>{
+//const NewHash=//should be fetched through the ipfs document
+try{
+MainC.methods.updateHash("${this.state.address}",NewHash).send().then(function(){
+  //should print out the error message from the contract
+  catch(error){
+    console.log(error);
+  }}
+})
+}
+
+}
 
 const useStyles = makeStyles((theme) => ({
   paper: {

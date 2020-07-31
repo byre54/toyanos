@@ -8,7 +8,7 @@ import InputBase from '@material-ui/core/InputBase'
 import Badge from '@material-ui/core/Badge'
 import MenuItem from '@material-ui/core/MenuItem'
 import Menu from '@material-ui/core/Menu'
-// import MenuIcon from '@material-ui/icons/Menu'
+import TitleIcon from '@material-ui/icons/Title'
 import SearchIcon from '@material-ui/icons/Search'
 import AccountCircle from '@material-ui/icons/AccountCircle'
 import ContactsBook from '@material-ui/icons/RecentActors'
@@ -116,10 +116,10 @@ export default function PrimarySearchAppBar () {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <Link to="/profile">
+      <Link to='/profile'>
         <MenuItem onClick={handleMenuClose}>Open Profile</MenuItem>
       </Link>
-      <Link to="/edit">
+      <Link to='/edit'>
         <MenuItem onClick={handleMenuClose}>Edit Profile</MenuItem>
       </Link>
     </Menu>
@@ -170,16 +170,16 @@ export default function PrimarySearchAppBar () {
     <div className={classes.grow}>
       <AppBar position='static'>
         <Toolbar>
-          {/* <IconButton
+          <IconButton
             edge='start'
             className={classes.menuButton}
             color='inherit'
             aria-label='open drawer'
           >
-            <MenuIcon />
-          </IconButton> */}
+            <TitleIcon />
+          </IconButton>
           <Typography className={classes.title} variant='h6' noWrap>
-            <Link to="/">TOYANOS</Link>
+            <Link to='/'>TOYANOS</Link>
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>

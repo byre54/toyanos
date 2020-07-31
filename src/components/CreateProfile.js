@@ -1,5 +1,5 @@
 import React from 'react'
-import Avatar from '@material-ui/core/Avatar'
+// import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import TextField from '@material-ui/core/TextField'
@@ -38,7 +38,7 @@ export default function Create () {
       <CssBaseline />
       <div className={classes.paper}>
         {/* <Avatar className={classes.avatar}> */}
-        <LockOutlinedIcon style={{ fontSize:50}} /> ``
+        <LockOutlinedIcon style={{ fontSize: 50 }} /> ``
         {/* </Avatar> */}
         <Typography component='h1' variant='h5'>
           Create your owned Identity Profile
@@ -110,7 +110,7 @@ export default function Create () {
           <Grid container justify='flex-end'>
             <Grid item>
               <Link href='#' variant='body2'>
-                Already have an Identity ? Prove it 
+                Already have an Identity ? Prove it
               </Link>
             </Grid>
           </Grid>

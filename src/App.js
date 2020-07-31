@@ -5,7 +5,7 @@ import Profile from './components/Profile'
 import Create from './components/CreateProfile'
 import Edit from './components/EditProfile'
 import AppBar from './components/AppBar'
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 export default function App () {
   return (
@@ -17,6 +17,7 @@ export default function App () {
             <Route path='/' exact component={Create} />
             <Route path='/profile' exact component={Profile} />
             <Route path='/edit' exact component={Edit} />
+            <Route path='/' component={Profile} />
           </Switch>
         </Box>
       </Container>

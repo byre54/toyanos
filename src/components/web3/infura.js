@@ -4,7 +4,7 @@ import axios from 'axios'
 // IPFS CONF
 const ipfsGW = 'https://ipfs.infura.io:5001'
 const apiver = 'api/v0'
-const params = 'archive=true'
+const params = 'archive=false'
 
 export const ipfs = {
   get: (hashAddress) => {

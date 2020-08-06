@@ -1,5 +1,5 @@
 {
-  "name": "create-react-app",
+  "name": "toyanos",
   "version": "4.0.0",
   "private": true,
   "scripts": {
@@ -11,7 +11,10 @@
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
+    "axios": "^0.19.2",
     "clsx": "latest",
+    "ipfs": "^0.48.1",
+    "ipfs-api": "^26.1.2",
     "material-ui-icons": "^1.0.0-beta.36",
     "react": "latest",
     "react-dom": "latest",

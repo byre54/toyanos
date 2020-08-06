@@ -34,6 +34,8 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2)
   }
 }))
+//  couldn't make it work apearantly 
+
 
 // async function tesipfs () {
 //   const node = await IPFS.create()

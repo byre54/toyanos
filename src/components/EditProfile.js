@@ -1,5 +1,5 @@
 import React from 'react'
-import Avatar from '@material-ui/core/Avatar'
+// import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import TextField from '@material-ui/core/TextField'
@@ -108,7 +108,7 @@ export default function Create () {
             type='submit'
             fullWidth
             variant='contained'
-            color='warning'
+            color='default'
             className={classes.submit}
           >
             Save Identity

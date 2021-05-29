@@ -1,6 +1,6 @@
 {
-  "name": "toyanos",
-  "version": "4.0.0",
+  "name": "linkr",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "react-scripts start",

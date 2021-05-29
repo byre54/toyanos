@@ -1,5 +1,5 @@
-# TOYANOS - OWNED VIRTUAL IDENTITY - HACKFS
-Created for HackFS Submission 
+# LINKR - IDENTITY LINKR - WEB3
+Created for WEB3WEEKEND Submission 
 
 ### WORK ON PROGRESS ... 
 
